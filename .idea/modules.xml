@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/csa-model/csa-model.iml" filepath="$PROJECT_DIR$/csa-model/csa-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/csa-rest/csa-rest.iml" filepath="$PROJECT_DIR$/csa-rest/csa-rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/csa-server-api/csa-server-api.iml" filepath="$PROJECT_DIR$/csa-server-api/csa-server-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/csa-server-impl/csa-server-impl.iml" filepath="$PROJECT_DIR$/csa-server-impl/csa-server-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/csa-sigmaCarSharingApp.iml" filepath="$PROJECT_DIR$/csa-sigmaCarSharingApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/csa-test/csa-test.iml" filepath="$PROJECT_DIR$/csa-test/csa-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/csa-war/csa-war.iml" filepath="$PROJECT_DIR$/csa-war/csa-war.iml" />
+      <module fileurl="file://$PROJECT_DIR$/csa-web/csa-web.iml" filepath="$PROJECT_DIR$/csa-web/csa-web.iml" />
+    </modules>
+  </component>
+</project>

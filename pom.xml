@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- +=============================================== -->
+    <!-- | Section 1:  Project information -->
+    <!-- +=============================================== -->
+
+    <groupId>sigmaCarSharingApp</groupId>
+    <artifactId>csa</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>carSharingApp</name>
+    <url>http://maven.apache.org</url>
+
+    <!-- +=============================================== -->
+    <!-- | Section 2:  Modules -->
+    <!-- +=============================================== -->
+
+  <modules>
+    <module>csa-web</module>
+    <module>csa-server-api</module>
+    <module>csa-server-impl</module>
+    <module>csa-war</module>
+    <module>csa-rest</module>
+    <module>csa-model</module>
+    <module>csa-test</module>
+  </modules>
+</project>
