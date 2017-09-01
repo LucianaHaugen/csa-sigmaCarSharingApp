@@ -16,14 +16,20 @@
     <!-- +=============================================== -->
     <!-- | Section 2:  Modules -->
     <!-- +=============================================== -->
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- Internal -->
+        <tr.version>1.0.0-SNAPSHOT</tr.version>
+    </properties>
 
-  <modules>
-    <module>csa-web</module>
-    <module>csa-server-api</module>
-    <module>csa-server-impl</module>
-    <module>csa-war</module>
-    <module>csa-rest</module>
-    <module>csa-model</module>
-    <module>csa-test</module>
-  </modules>
+    <modules>
+        <module>csa-web</module>
+        <module>csa-server-api</module>
+        <module>csa-server-impl</module>
+        <module>csa-war</module>
+        <module>csa-rest</module>
+        <module>csa-model</module>
+        <module>csa-test</module>
+    </modules>
 </project>

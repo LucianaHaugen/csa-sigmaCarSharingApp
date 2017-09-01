@@ -18,14 +18,14 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="csa-model" target="1.5" />
-      <module name="csa-rest" target="1.5" />
-      <module name="csa-server-api" target="1.5" />
-      <module name="csa-server-impl" target="1.5" />
-      <module name="csa-sigmaCarSharingApp" target="1.5" />
-      <module name="csa-test" target="1.5" />
-      <module name="csa-war" target="1.5" />
-      <module name="csa-web" target="1.5" />
+      <module name="csa-model" target="1.8" />
+      <module name="csa-rest" target="1.8" />
+      <module name="csa-server-api" target="1.8" />
+      <module name="csa-server-impl" target="1.8" />
+      <module name="csa-sigmaCarSharingApp" target="1.8" />
+      <module name="csa-test" target="1.8" />
+      <module name="csa-war" target="1.8" />
+      <module name="csa-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
