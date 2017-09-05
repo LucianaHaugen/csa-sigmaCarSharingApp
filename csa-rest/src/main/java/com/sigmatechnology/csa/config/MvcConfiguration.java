@@ -24,13 +24,15 @@ import java.util.List;
 @Import({SecurityHttpConfiguration.class, SecurityJwtConfiguration.class})
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
+    @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry){
         registry
             .addResourceHandler("/**")
             .addResourceLocations("/");
     }
 
-    public void configuredMessageConverters(List<HttpMessageConverter<?>> converters){
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters){
         converters.add(converter());
         converters.add(customPDFConverter());
     }

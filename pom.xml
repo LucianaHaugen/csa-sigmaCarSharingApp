@@ -6,7 +6,7 @@
     <!-- | Section 1:  Project information -->
     <!-- +=============================================== -->
 
-    <groupId>sigmaCarSharingApp</groupId>
+    <groupId>com.sigmatechnology.csa</groupId>
     <artifactId>csa</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>

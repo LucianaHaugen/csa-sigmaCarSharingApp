@@ -19,6 +19,7 @@ public class SecurityHttpConfiguration extends WebSecurityConfigurerAdapter{
 
     private static final Logger LOG = LoggerFactory.getLogger(SecurityHttpConfiguration.class);
 
+    @Override
     protected void configure(HttpSecurity http) throws Exception{
         LOG.debug("Disabling CSRF");
         http.csrf().disable();

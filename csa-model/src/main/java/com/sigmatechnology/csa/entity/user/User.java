@@ -1,6 +1,7 @@
 package com.sigmatechnology.csa.entity.user;
 
 import com.sigmatechnology.csa.entity.AbstractBaseEntity;
+import com.sigmatechnology.csa.entity.account.UserRole;
 import com.sigmatechnology.csa.entity.booking.Booking;
 
 import javax.persistence.*;
@@ -29,6 +30,9 @@ public class User extends AbstractBaseEntity implements Serializable {
     private boolean isApproved;
     private int totalBookingsYear;
     private int totalDistanceYear;
+    private UserRole role;
+    private List<UserRole> roles;
+    private String password;
 
     public User() {
     }
@@ -93,6 +97,34 @@ public class User extends AbstractBaseEntity implements Serializable {
 
     public void setUserBooking(List<Booking> userBookings) {
         this.userBookings = userBookings;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
+    public void setUserBookings(List<Booking> userBookings) {
+        this.userBookings = userBookings;
+    }
+
+    public List<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<UserRole> roles) {
+        this.roles = roles;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @java.lang.Override
