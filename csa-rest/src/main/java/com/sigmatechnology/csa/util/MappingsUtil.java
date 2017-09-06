@@ -3,6 +3,7 @@ package com.sigmatechnology.csa.util;
 import com.google.common.collect.Lists;
 import com.sigmatechnology.csa.entity.account.UserAccount;
 import com.sigmatechnology.csa.entity.account.UserRole;
+import com.sigmatechnology.csa.entity.booking.Booking;
 import com.sigmatechnology.csa.entity.user.User;
 import com.sigmatechnology.csa.json.AbstractJsonObject;
 import org.springframework.util.DigestUtils;
@@ -108,5 +109,58 @@ public class MappingsUtil {
     }
 
 
+    /** ____________________________________BOOKING RELATED METHODS__________
+     *
+     * Map Entity Booking to JSON Booking
+     * @param booking
+     * @return jsonBooking
+     */
+    public static Booking mapBookingToBooking(Booking booking) {
+        Booking jsonBooking = new Booking();
+        jsonBooking.setId(booking.getId());
+        jsonBooking.setUserId(booking.getUserId());
+        jsonBooking.setReg(booking.getReg());
+        jsonBooking.setTimeOfBooking(booking.getTimeOfBooking());
+        jsonBooking.setStartingDate(booking.getStartingDate());
+        jsonBooking.setStartingTime(booking.getStartingTime());
+        jsonBooking.setEndingDate(booking.getEndingDate());
+        jsonBooking.setEndingTime(booking.getEndingTime());
+        jsonBooking.setDestination(booking.getDestination());
+        jsonBooking.setErrand(booking.getErrand());
+        jsonBooking.setPurpose(booking.getPurpose());
 
+        return jsonBooking;
+    }
+
+    public static List<Booking> mapBookingsToBookings(List<Booking> bookings) {
+        List<Booking> returnList = new ArrayList<>();
+        for(com.sigmatechnology.csa.entity.booking.Booking booking : bookings){
+            returnList.add(mapBookingToBooking(booking));
+        }
+
+        return returnList;
+    }
+
+    public static Booking mapBookingToBookingEntity(Booking booking, com.sigmatechnology.csa.entity.booking.Booking bookingEntity) {
+        if(booking == null){
+            return null;
+        }
+
+        if(bookingEntity == null){
+            bookingEntity = new com.sigmatechnology.csa.entity.booking.Booking();
+        }
+        bookingEntity.setId(booking.getId());
+        bookingEntity.setUserId(booking.getUserId());
+        bookingEntity.setReg(booking.getReg());
+        bookingEntity.setTimeOfBooking(booking.getTimeOfBooking());
+        bookingEntity.setStartingDate(booking.getStartingDate());
+        bookingEntity.setStartingTime(booking.getStartingTime());
+        bookingEntity.setEndingDate(booking.getEndingDate());
+        bookingEntity.setEndingTime(booking.getEndingTime());
+        bookingEntity.setDestination(booking.getDestination());
+        bookingEntity.setErrand(booking.getErrand());
+        bookingEntity.setPurpose(booking.getPurpose());
+
+        return bookingEntity;
+    }
 }
