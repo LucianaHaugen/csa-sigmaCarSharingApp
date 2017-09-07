@@ -2,6 +2,7 @@ package com.sigmatechnology.csa.entity.account;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sigmatechnology.csa.entity.AbstractBaseEntity;
+import com.sigmatechnology.csa.entity.user.User;
 
 import javax.persistence.*;
 import java.util.List;
@@ -46,7 +47,17 @@ public class UserAccount extends AbstractBaseEntity{
     private String password;
 
 
+    /**
+     * TODO: Annotation till database ManyToMany and JoinTable
+     */
     private List<UserRole> roles;
+
+
+    /**
+     * TODO: Annotation till database ManyToMany(fetch = FetchType.EAGER) and JoinTable
+     */
+    private List<User> users;
+
 
     public UserAccount() {
     }
@@ -89,5 +100,13 @@ public class UserAccount extends AbstractBaseEntity{
 
     public void setRoles(List<UserRole> roles) {
         this.roles = roles;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<User> getUsers(){
+        return users;
     }
 }

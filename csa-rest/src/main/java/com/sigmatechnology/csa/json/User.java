@@ -13,6 +13,8 @@ public class User extends AbstractJsonObject{
     private Long userId;
     private String userName;
     private String password;
+    private int totalBookingsYear;
+    private double totalDistanceYear;
     private List<Booking> bookings;
     private List<UserRole> roles;
 
@@ -54,5 +56,21 @@ public class User extends AbstractJsonObject{
 
     public void setRoles(List<UserRole> roles) {
         this.roles = roles;
+    }
+
+    public int getTotalBookingsYear() {
+        return totalBookingsYear;
+    }
+
+    public void setTotalBookingsYear(int totalBookingsYear) {
+        this.totalBookingsYear = totalBookingsYear;
+    }
+
+    public double getTotalDistanceYear() {
+        return totalDistanceYear;
+    }
+
+    public void setTotalDistanceYear(double totalDistanceYear) {
+        this.totalDistanceYear = totalDistanceYear;
     }
 }

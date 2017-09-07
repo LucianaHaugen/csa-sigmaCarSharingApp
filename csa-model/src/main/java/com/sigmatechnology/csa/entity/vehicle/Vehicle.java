@@ -29,9 +29,9 @@ public class Vehicle extends AbstractBaseEntity implements Serializable {
     private Long vehicleId;
     private String reg;
     private int year;
-    private int milage;
+    private double mileage;
     private String body;
-    private String equipament;
+    private String equipment;
     private String model;
     private String fuel;
     private String site;
@@ -41,13 +41,13 @@ public class Vehicle extends AbstractBaseEntity implements Serializable {
     public Vehicle() {
     }
 
-    public Vehicle(Long vehicleId, String reg, int year, int milage, String body, String equipament, String model, String fuel, String site, String responsible, Image vehicleImage) {
+    public Vehicle(Long vehicleId, String reg, int year, double mileage, String body, String equipment, String model, String fuel, String site, String responsible, Image vehicleImage) {
         this.vehicleId = vehicleId;
         this.reg = reg;
         this.year = year;
-        this.milage = milage;
+        this.mileage = this.mileage;
         this.body = body;
-        this.equipament = equipament;
+        this.equipment = equipment;
         this.model = model;
         this.fuel = fuel;
         this.site = site;
@@ -76,12 +76,12 @@ public class Vehicle extends AbstractBaseEntity implements Serializable {
         this.year = year;
     }
 
-    public int getMilage() {
-        return milage;
+    public double getMileage() {
+        return mileage;
     }
 
-    public void setMilage(int milage) {
-        this.milage = milage;
+    public void setMileage(double mileage) {
+        this.mileage = mileage;
     }
 
     public String getBody() {
@@ -92,12 +92,12 @@ public class Vehicle extends AbstractBaseEntity implements Serializable {
         this.body = body;
     }
 
-    public String getEquipament() {
-        return equipament;
+    public String getEquipment() {
+        return equipment;
     }
 
-    public void setEquipament(String equipament) {
-        this.equipament = equipament;
+    public void setEquipment(String equipment) {
+        this.equipment = equipment;
     }
 
     public String getModel() {
@@ -146,9 +146,9 @@ public class Vehicle extends AbstractBaseEntity implements Serializable {
                 "vehicleId=" + vehicleId +
                 ", reg='" + reg + '\'' +
                 ", year=" + year +
-                ", milage=" + milage +
+                ", mileage=" + mileage +
                 ", body='" + body + '\'' +
-                ", equipament='" + equipament + '\'' +
+                ", equipment='" + equipment + '\'' +
                 ", model='" + model + '\'' +
                 ", fuel='" + fuel + '\'' +
                 ", site='" + site + '\'' +

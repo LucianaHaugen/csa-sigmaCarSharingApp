@@ -5,8 +5,10 @@ import com.sigmatechnology.csa.entity.account.UserAccount;
 import com.sigmatechnology.csa.entity.account.UserRole;
 import com.sigmatechnology.csa.entity.booking.Booking;
 import com.sigmatechnology.csa.entity.user.User;
+import com.sigmatechnology.csa.entity.vehicle.Vehicle;
 import com.sigmatechnology.csa.json.AbstractJsonObject;
-import org.springframework.util.DigestUtils;
+import org.apache.commons.codec.digest.DigestUtils;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,58 +19,72 @@ import java.util.Objects;
  */
 public class MappingsUtil {
 
-    public static List<User> mapUserAccountToUser(List<UserAccount> userAccounts) {
-        List<User> returnList = new ArrayList<>();
+    public static List<com.sigmatechnology.csa.json.User> mapUserAccountsToUsers(List<UserAccount> userAccounts) {
+        List<com.sigmatechnology.csa.json.User> returnList = new ArrayList<>();
         for (UserAccount userAccount : userAccounts) {
             returnList.add(mapUserAccountToUser(userAccount));
         }
         return returnList;
     }
 
-    public static User mapUserAccountToUser(UserAccount userAccount) {
-        User user = new User();
+    public static com.sigmatechnology.csa.json.User mapUserAccountToUser(UserAccount userAccount) {
+        com.sigmatechnology.csa.json.User user = new com.sigmatechnology.csa.json.User();
         user.setId(userAccount.getId());
         user.setUserName(userAccount.getUsername());
+        user.setPassword(userAccount.getPassword());
         user.setRoles(mapUserRolesToJson(userAccount.getRoles()));
 
         return user;
     }
 
-    public static UserAccount mapUserToUserAccount(User user, UserAccount userAccount, List<User> users) {
+    public static UserAccount mapUserToUserAccount(com.sigmatechnology.csa.json.User user, UserAccount userAccount, List<User> users) {
         if (userAccount == null) {
             userAccount = new UserAccount();
         }
         userAccount.setId(user.getUserId());
         userAccount.setUsername(user.getUserName());
-        /**
-         * TODO: Take a look on sha256Hex
-         */
-        //userAccount.setPassword(DigestUtils.sha256Hex(user.getPassword()));
+        userAccount.setPassword(DigestUtils.sha256Hex(user.getPassword()));
         userAccount.setRoles(mapUserRolesToDao(user.getRoles()));
+        userAccount.setUsers(users);
 
         return userAccount;
     }
 
-    /**
-     * TODO: Fix user
-     */
-   /* public static List<User> mapUsersToUsers(List<User> users) {
-        List<User> returnList = new ArrayList<>();
-        for (User user : users) {
-            returnList.add(mapUserAccountToUser(user));
-        }
-        return returnList;
-    }*/
+
+   public static List<com.sigmatechnology.csa.json.User> mapUsersToUsers(List<User> users) {
+       List<com.sigmatechnology.csa.json.User> returnList = new ArrayList<>();
+       for (User user : users) {
+           returnList.add(mapUserToUser(user));
+       }
+       return returnList;
+   }
 
     /**
      * Map Entity User to JSON User
      */
-    public static User mapUserToUser(com.sigmatechnology.csa.entity.user.User user) {
-        User jsonUser = new User();
+    public static com.sigmatechnology.csa.json.User mapUserToUser(User user) {
+        com.sigmatechnology.csa.json.User jsonUser = new com.sigmatechnology.csa.json.User();
         jsonUser.setId(user.getId());
         jsonUser.setUserName(user.getUserName());
 
         return jsonUser;
+    }
+
+    public static User mapUserToUserEntity(com.sigmatechnology.csa.json.User user, User userEntity){
+        if(user == null){
+            return null;
+        }
+        if(userEntity == null){
+            userEntity = new User();
+        }
+        userEntity.setId(user.getId());
+        userEntity.setUserName(user.getUserName());
+        userEntity.setRoles(user.getRoles());
+        userEntity.setTotalBookingsYear(user.getTotalBookingsYear());
+        userEntity.setTotalDistanceYear(user.getTotalDistanceYear());
+        userEntity.setUserBooking(user.getBookings());
+
+        return userEntity;
     }
 
     private static List<UserRole> mapUserRolesToJson(List<UserRole> userRolesDao){
@@ -163,4 +179,66 @@ public class MappingsUtil {
 
         return bookingEntity;
     }
+
+
+    /**____________________________________VEHICLE RELATED METHODS__________
+     *
+     * Map Entity Vehicle to JSON Booking
+     * @param vehicles
+     * @return
+     */
+    public static List<com.sigmatechnology.csa.json.Vehicle> mapVehiclesToVehicles(List<Vehicle> vehicles) {
+        List<com.sigmatechnology.csa.json.Vehicle> returnList = new ArrayList<>();
+        for(com.sigmatechnology.csa.entity.vehicle.Vehicle vehicle : vehicles){
+            returnList.add(mapVehicleToVehicle(vehicle));
+        }
+
+        return returnList;
+    }
+
+    public static com.sigmatechnology.csa.json.Vehicle mapVehicleToVehicle(Vehicle vehicle) {
+        com.sigmatechnology.csa.json.Vehicle jsonVehicle = new com.sigmatechnology.csa.json.Vehicle();
+
+        jsonVehicle.setId(vehicle.getId());
+        jsonVehicle.setVehicleId(vehicle.getVehicleId());
+        jsonVehicle.setReg(vehicle.getReg());
+        jsonVehicle.setBody(vehicle.getBody());
+        jsonVehicle.setModel(vehicle.getModel());
+        jsonVehicle.setFuel(vehicle.getFuel());
+        jsonVehicle.setEquipment(vehicle.getEquipment());
+        jsonVehicle.setMileage(vehicle.getMileage());
+        jsonVehicle.setYear(vehicle.getYear());
+        jsonVehicle.setSite(vehicle.getSite());
+        jsonVehicle.setResponsible(vehicle.getResponsible());
+
+        return jsonVehicle;
+    }
+
+    public static Vehicle mapVehicleToVehicleEntity(com.sigmatechnology.csa.json.Vehicle vehicle, Vehicle vehicleEntity) {
+        /**
+         * A vehicle may not be selected in eg Vehicle view during Save.
+         * In that case the Vehicle will be NULL
+         */
+        if(vehicle == null){
+            return null;
+        }
+        if(vehicleEntity == null){
+            vehicleEntity = new Vehicle();
+        }
+        vehicleEntity.setId(vehicle.getId());
+        vehicleEntity.setReg(vehicle.getReg());
+        vehicleEntity.setBody(vehicle.getBody());
+        vehicleEntity.setModel(vehicle.getModel());
+        vehicleEntity.setFuel(vehicle.getFuel());
+        vehicleEntity.setEquipment(vehicle.getEquipment());
+        vehicleEntity.setMileage(vehicle.getMileage());
+        vehicleEntity.setYear(vehicle.getYear());
+        vehicleEntity.setSite(vehicle.getSite());
+        vehicleEntity.setResponsible(vehicle.getResponsible());
+
+        return vehicleEntity;
+    }
+
+
+
 }

@@ -29,7 +29,7 @@ public class User extends AbstractBaseEntity implements Serializable {
     private String userName;
     private boolean isApproved;
     private int totalBookingsYear;
-    private int totalDistanceYear;
+    private double totalDistanceYear;
     private UserRole role;
     private List<UserRole> roles;
     private String password;
@@ -83,11 +83,11 @@ public class User extends AbstractBaseEntity implements Serializable {
         this.totalBookingsYear = totalBookingsYear;
     }
 
-    public int getTotalDistanceYear() {
+    public double getTotalDistanceYear() {
         return totalDistanceYear;
     }
 
-    public void setTotalDistanceYear(int totalDistanceYear) {
+    public void setTotalDistanceYear(double totalDistanceYear) {
         this.totalDistanceYear = totalDistanceYear;
     }
 
