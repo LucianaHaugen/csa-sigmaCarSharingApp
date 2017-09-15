@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by lucianahaugen on 31/08/17.
  */
-public class BookingRepository extends CrudRepository<Booking> implements BookingDao{
+public class BookingRepo extends CrudRepo<Booking> implements BookingDao{
 
     @Override
     public List<Booking> findByIds(List<Long> ids) {

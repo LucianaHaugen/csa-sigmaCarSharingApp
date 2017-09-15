@@ -2,6 +2,10 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+
+    <!-- +=============================================== -->
+    <!-- | Section 1:  Project information -->
+    <!-- +=============================================== -->
   <parent>
     <groupId>com.sigmatechnology.csa</groupId>
     <artifactId>csa</artifactId>
@@ -16,6 +20,15 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+    <!-- +=============================================== -->
+    <!-- | Section 2:  Repositories -->
+    <!-- +=============================================== -->
+
+
+    <!-- +=============================================== -->
+    <!-- | Section 3:  Dependencies -->
+    <!-- +=============================================== -->
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -73,5 +86,15 @@
           <artifactId>commons-codec</artifactId>
           <version>1.10</version>
       </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>1.7.25</version>
+      </dependency>
   </dependencies>
+
+    <!-- +=============================================== -->
+    <!-- | Section 4:  Build Settings -->
+    <!-- +=============================================== -->
+
 </project>

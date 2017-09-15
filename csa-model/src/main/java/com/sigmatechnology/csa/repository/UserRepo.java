@@ -9,7 +9,7 @@ import java.util.List;
  * Created by lucianahaugen on 31/08/17.
  */
 @Repository
-public class UserRepository extends CrudRepository<User> implements UserDao{
+public class UserRepo extends CrudRepo<User> implements UserDao{
 
     @Override
     public List<User> findByIds(List<Long> ids) {

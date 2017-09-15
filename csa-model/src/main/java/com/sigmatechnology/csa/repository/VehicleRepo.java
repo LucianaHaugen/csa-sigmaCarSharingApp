@@ -10,7 +10,7 @@ import java.util.List;
  * Created by lucianahaugen on 31/08/17.
  */
 @Repository
-public class VehicleRepository extends CrudRepository<Vehicle> implements VehicleDao{
+public class VehicleRepo extends CrudRepo<Vehicle> implements VehicleDao{
     @Override
     public Vehicle getVehicle(long vehicleId) {
         return entityManager

@@ -9,7 +9,7 @@ import java.util.List;
  * Created by lucianahaugen on 04/09/17.
  */
 @Repository
-public class UserAccountRepository  extends CrudRepository<UserAccount> implements UserAccountDao{
+public class UserAccountRepo extends CrudRepo<UserAccount> implements UserAccountDao{
 
 
     @Override

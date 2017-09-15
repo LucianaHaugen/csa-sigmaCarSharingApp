@@ -20,10 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**A repository class that add basic CRUD functionality */
-public class CrudRepository <T extends AbstractBaseEntity> implements CrudDao<T> {
+public class CrudRepo<T extends AbstractBaseEntity> implements CrudDao<T> {
 
     /** Choice of Logger */
-    private static final Logger LOG = LoggerFactory.getLogger(CrudRepository.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CrudRepo.class);
 
     /**
      * The entity manager.
@@ -42,7 +42,7 @@ public class CrudRepository <T extends AbstractBaseEntity> implements CrudDao<T>
      * Initializes the entity class type
      */
     @SuppressWarnings("unchecked")
-    public CrudRepository() {
+    public CrudRepo() {
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
         this.entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
     }

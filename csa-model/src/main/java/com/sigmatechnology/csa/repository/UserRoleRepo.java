@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * Created by lucianahaugen on 04/09/17.
  */
 @Repository
-public class UserRoleRepository extends CrudRepository<UserRole> implements UserRoleDao{
+public class UserRoleRepo extends CrudRepo<UserRole> implements UserRoleDao{
 
     @Override
     public UserRole findByRole(UserRoles role) {

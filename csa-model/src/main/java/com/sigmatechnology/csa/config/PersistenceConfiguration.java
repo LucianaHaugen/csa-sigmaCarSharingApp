@@ -146,7 +146,7 @@ public class PersistenceConfiguration {
         Properties defaultProperties = new Properties();
 
         // TODO: add default properties
-        
+
         return defaultProperties;
     }
 

@@ -24,7 +24,8 @@ public class User extends AbstractBaseEntity implements Serializable {
     public static final String FETCH_ALL = "FetchAll";
     public static final String FETCH_BY_NAMES = "FetchByNames";
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long userId;
     private String userName;
     private boolean isApproved;
@@ -35,6 +36,13 @@ public class User extends AbstractBaseEntity implements Serializable {
     private String password;
 
     public User() {
+    }
+
+    public User(String userName, boolean isApproved, int totalBookingsYear, double totalDistanceYear) {
+        this.userName = userName;
+        this.isApproved = isApproved;
+        this.totalBookingsYear = totalBookingsYear;
+        this.totalDistanceYear = totalDistanceYear;
     }
 
     public User(Long userId, String userName, boolean isApproved, int totalBookingsYear, int totalDistanceYear) {
@@ -127,7 +135,7 @@ public class User extends AbstractBaseEntity implements Serializable {
         this.password = password;
     }
 
-    @java.lang.Override
+    @Override
     public java.lang.String toString() {
         return "User{" +
                 "userId=" + userId +

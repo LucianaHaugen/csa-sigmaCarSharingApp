@@ -2,7 +2,12 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
+
+    <!-- +=============================================== -->
+    <!-- | Section 1:  Project information -->
+    <!-- +=============================================== -->
+
+    <parent>
     <groupId>com.sigmatechnology.csa</groupId>
     <artifactId>csa</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -12,12 +17,22 @@
   <version>1.0.0-SNAPSHOT</version>
   <name>csa-web</name>
   <url>http://maven.apache.org</url>
+    <packaging>jar</packaging>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <!-- +=============================================== -->
+    <!-- | Section 2:  Repositories -->
+    <!-- +=============================================== -->
+
+    <!-- +=============================================== -->
+    <!-- | Section 3:  Dependencies -->
+    <!-- +=============================================== -->
+
 
   <dependencies>
     <dependency>
@@ -26,5 +41,39 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot</artifactId>
+          <version>1.5.6.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-autoconfigure</artifactId>
+          <version>1.5.6.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-jpa</artifactId>
+          <version>1.11.1.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-autoconfigure</artifactId>
+          <version>1.5.6.RELEASE</version>
+      </dependency>
   </dependencies>
+
+    <!-- +=============================================== -->
+    <!-- | Section 4:  Build Settings -->
+    <!-- +=============================================== -->
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>1.5.7.RELEASE</version>
+        </plugin>
+    </plugins>
+</build>
+
 </project>

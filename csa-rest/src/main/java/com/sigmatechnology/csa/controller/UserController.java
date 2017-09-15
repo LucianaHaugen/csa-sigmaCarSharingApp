@@ -27,9 +27,8 @@ public class UserController extends AbstractController{
     @RequestMapping(method = RequestMethod.GET, value = "/users")
     @ResponseBody
     public List<User> listAll(){
-        /**
-         * TODO: implement method
-         */
-        return null;
+        List<User> users = this.userService.listAll();
+        System.out.println("list of users requested from User Service in the UserController");
+        return users;
     }
 }
